@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+
+  </head>
+  <body>
+
+    <div id="chat-container">
+      <div id="chat-windows">
+        <div id="output"></div>
+        <div id="actions"></div>
+      </div>
+      <input type="text" id="username" placeholder="Usuario">
+      <input type="text" id="ruta" style="display:none;" >
+      <input type="text" id="message" placeholder="Mensaje">
+      <div id="div_file">
+      <p id="texto">Adjuntar imagen</p>
+      <input type='file'  id = "btn_enviar" accept = "image/*" onchange = "handleFiles(event)" />
+      </div>
+      <button id="sent">Enviar</button>
+    </div>
+
+
+  <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="chat.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    message = document.getElementById('message');
+    file = document.getElementById('btn_enviar');
+    rt = document.getElementById('ruta');
+    btn  = document.getElementById('sent');
+    btn.addEventListener('click', function () {
+      message.value='';
+      file.value='';
+      rt.value='';
+    });
+  </script>
+  </body>
+</html>
